@@ -36,7 +36,7 @@ window.customElements.define('bea-website-main', class extends HTMLElement {
     display: grid;
     grid-template-columns: auto auto;
     align-items: center;
-    gap: 20px;
+    gap: 12px;
   }
 
   bea-logo {
@@ -44,8 +44,11 @@ window.customElements.define('bea-website-main', class extends HTMLElement {
     height: 40px;
   }
 
-  #comingsoon {
+  #name {
     color: var(--bea-color-blue);
+    font-weight: bolder;
+    font-size: 24px;
+    font-family: Pangram;
   }
 
   bea-website-home {
@@ -54,7 +57,7 @@ window.customElements.define('bea-website-main', class extends HTMLElement {
 </style>
 <div id="header">
   <bea-logo icon></bea-logo>
-  <div id="comingsoon">Coming soon...</div>
+  <div id="name">Béa</div>
 </div>
 <!-- <bea-website-menu></bea-website-menu> -->
 <bea-website-home></bea-website-home>`;
