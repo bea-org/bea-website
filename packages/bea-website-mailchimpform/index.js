@@ -15,7 +15,7 @@ window.customElements.define('bea-website-mailchimpform', class extends HTMLElem
     display: grid;
     position: relative;
     grid-template-columns: 1fr auto;
-    gap: 25px;
+    gap: 20px;
     align-items: center;
   }
 
@@ -53,7 +53,7 @@ window.customElements.define('bea-website-mailchimpform', class extends HTMLElem
   <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
   <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
       name="b_9478a676a23e73e9922afc992_9e77fea305" tabindex="-1" value=""></div>
-  <bea-website-button>S'inscrire</bea-website-button>
+  <bea-website-button>M'inscrire</bea-website-button>
 </form>`;
 
     const submitButton = this.shadowRoot.querySelector('bea-website-button');

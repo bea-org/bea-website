@@ -21,6 +21,7 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
     line-height: 1;
     font-family: Pangram;
     perspective: 500px;
+    justify-items: center;
   }
 
   bea-website-backgroundcircle {
@@ -54,36 +55,41 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
     animation-direction: alternate;
   }
 
-  #left {
+  #text {
     color: var(--bea-color-blue);
     display: grid;
-    align-items: center;
-    justify-items: center;
+    gap: 30px;
+    align-content: center;
+    max-width: 380px;
   }
 
-  #text {
+  h2 {
     font-weight: 700;
     font-size: 96px;
     white-space: nowrap;
+    margin: 0;
   }
 
-  #text span:nth-of-type(2),
-  #text span:nth-of-type(3) {
+  h2 span:nth-of-type(2),
+  h2 span:nth-of-type(3) {
     display: block;
   }
 
-  #text span:nth-of-type(2),
-  #text span:nth-of-type(4) {
+  h2 span:nth-of-type(2) {
     color: var(--bea-color-darkblue);
   }
 
-  #text span:nth-of-type(3) {
+  h2 span:nth-of-type(3) {
     color: var(--bea-color-green);
   }
 
-  #text span:nth-of-type(5) {
-    display: inline;
-    color: var(--bea-color-blue);
+  p {
+    color: var(--bea-color-darkblue);
+    margin: 0;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 1.2;
   }
 
   #emailformpopup {
@@ -93,22 +99,20 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
     padding: 50px 45px;
     gap: 45px;
     position: absolute;
-    bottom: 25px;
-    margin: auto;
-    left: 0;
-    right: 0;
+    top: 50%;
+    left: 50%;
     width: 560px;
+    box-sizing: border-box;
     box-shadow: 40px 30px 30px #6b7f9933;
     will-change: transform, opacity, visibility;
     transition-property: transform, opacity, visibility;
     transition-duration: .5s;
-    transition-timing-function: cubic-bezier(0.35, 1.42, 0.54, 0.99);
-    transform-style: preserve-3d;
-    transform-origin: center 25% -250px;
+    transition-timing-function: cubic-bezier(0.43, 1.84, 0.48, 0.99);
+    transform: translate(-50%, -50%)
   }
 
-  #emailformpopup[hidden] {
-    transform: rotateX(-15deg) translateY(50px);
+  :host(:not([emailformopen])) #emailformpopup {
+    transform: translateY(-50px) translate(-50%, -50%);
     opacity: 0;
     transition-duration: .3s;
     visibility: hidden;
@@ -123,13 +127,20 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
 
   #emailformclosebutton {
     position: absolute;
-    top: 40px;
-    right: 45px;
+    width: 48px;
+    height: 48px;
+    top: 0;
+    left: calc(100% + 24px);
     cursor: pointer;
-    color: var(--bea-color-grey);
+    background-color: var(--bea-color-ivory);
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    color: var(--bea-color-darkblue);
     transition-property: transform;
     transition-duration: .2s;
-    padding: 5px;
+    border-radius: 24px;
+    filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.1));
   }
 
   #emailformclosebutton:hover {
@@ -138,6 +149,8 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
 
   #emailformclosebutton bea-icon {
     color: currentColor;
+    height: 12px;
+    width: 12px;
   }
 
   #emailformbutton {
@@ -146,6 +159,23 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
     bottom: 40px;
     left: 50%;
     transform: translateX(-50%);
+  }
+
+  #overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bea-color-darkblue);
+    opacity: 0.6;
+    transition-property: opacity;
+    transition-duration: .6s;
+  }
+
+  :host(:not([emailformopen])) #overlay {
+    opacity: 0;
+    pointer-events: none;
   }
 
   @keyframes float {
@@ -159,20 +189,21 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
   }
 </style>
 <bea-website-backgroundcircle></bea-website-backgroundcircle>
-<div id="left">
-  <div id="text">
+<div id="text">
+  <h2>
     <span>Béa</span>
     <span>le don</span>
-    <span>(enfin !)</span>
-    <span>facile</span><span>.</span>
-  </div>
+    <span>facile</span>
+  </h2>
+  <p>L’application mobile bénévole qui simplifie le don aux associations</p>
 </div>
 <div id="right">
   <img id="phone" src="node_modules/@bea-org/bea-website-home/phone.svg">
 </div>
-<bea-website-button id="emailformbutton">Reste informé(e) !</bea-website-button>
+<bea-website-button id="emailformbutton">Ça m’intéresse</bea-website-button>
+<div id="overlay"></div>
 <section id="emailformpopup" hidden>
-  <div id="emailformtitle">Me tenir informé(e)</div>
+  <div id="emailformtitle">On vous en dit plus bientôt !</div>
   <bea-website-mailchimpform></bea-website-mailchimpform>
   <a href="javascript:;" id="emailformclosebutton">
     <bea-icon icon="close"></bea-icon>
@@ -183,12 +214,12 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
 
     const emailFormButton = this.shadowRoot.querySelector('#emailformbutton');
     emailFormButton.addEventListener('click', () => {
-      emailFormPopup.hidden = false;
+      this.toggleAttribute('emailformopen', true);
     });
 
     const closeButton = this.shadowRoot.querySelector('#emailformclosebutton');
-    closeButton.addEventListener('click', () => emailFormPopup.hidden = true);
+    closeButton.addEventListener('click', () => this.toggleAttribute('emailformopen', false));
 
-    emailFormPopup.addEventListener('submit', () => emailFormPopup.hidden = true);
+    emailFormPopup.addEventListener('submit', () => this.toggleAttribute('emailformopen', false));
   }
 });
