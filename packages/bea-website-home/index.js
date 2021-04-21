@@ -136,7 +136,7 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
     justify-content: center;
     color: var(--bea-color-darkblue);
     transition-property: transform;
-    transition-duration: .2s;
+    transition-duration: .4s;
     border-radius: 24px;
     filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.1));
   }
