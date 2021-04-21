@@ -17,11 +17,13 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
   :host {
     display: grid;
     position: relative;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr);
     line-height: 1;
     font-family: Pangram;
     perspective: 500px;
     justify-items: center;
+    align-items: center;
   }
 
   bea-website-backgroundcircle {
@@ -40,26 +42,22 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
     }
   }
 
-  #right {
-    display: grid;
-    align-items: center;
-    justify-content: center;
-  }
-
   #phone {
-    filter: drop-shadow(40px 30px 30px #6B7F9933);
+    max-height: 80%;
+    /* filter: drop-shadow(40px 30px 30px #6B7F9933); */
     animation-duration: 3s;
     animation-name: float;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
     animation-direction: alternate;
+    -webkit-mask-image: url(node_modules/@bea-org/bea-website-home/video-mask.png);
+    -webkit-mask-size: 100% 100%;
   }
 
   #text {
     color: var(--bea-color-blue);
     display: grid;
     gap: 30px;
-    align-content: center;
     max-width: 380px;
   }
 
@@ -197,9 +195,8 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
   </h2>
   <p>L’application mobile bénévole qui simplifie le don aux associations</p>
 </div>
-<div id="right">
-  <img id="phone" src="node_modules/@bea-org/bea-website-home/phone.svg">
-</div>
+<!-- <img id="phone" src="node_modules/@bea-org/bea-website-home/phone.svg"> -->
+<video id="phone" autoplay loop muted playsinline src="node_modules/@bea-org/bea-website-home/userflow.mp4"></video>
 <bea-website-button id="emailformbutton">Ça m’intéresse</bea-website-button>
 <div id="overlay"></div>
 <section id="emailformpopup" hidden>
