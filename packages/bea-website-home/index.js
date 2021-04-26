@@ -17,33 +17,32 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
   :host {
     display: grid;
     position: relative;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    grid-template-rows: minmax(0, 1fr);
     line-height: 1;
+    grid-auto-columns: minmax(0, 1fr);
     font-family: Pangram;
-    perspective: 500px;
     justify-items: center;
     align-items: center;
   }
 
   bea-website-backgroundcircle {
     position: absolute;
-    left: calc(50% - 5vw);
-    top: 50%;
-    transform: translateY(-50%);
-    width: 120vw;
-    height: 120vw;
+    width: 200%;
+    height: 200%;
   }
 
-  @media (max-aspect-ratio: 1/1) {
-    bea-website-backgroundcircle {
-      width: 120vh;
-      height: 120vh;
-    }
+  #media {
+    grid-area: media;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   #phone {
-    max-height: 80%;
+    max-height: 80vh;
+    max-width: 80vw;
     /* filter: drop-shadow(40px 30px 30px #6B7F9933); */
     animation-duration: 3s;
     animation-name: float;
@@ -55,15 +54,14 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
   }
 
   #text {
+    grid-area: text;
     color: var(--bea-color-blue);
     display: grid;
-    gap: 30px;
     max-width: 380px;
   }
 
   h2 {
     font-weight: 700;
-    font-size: 96px;
     white-space: nowrap;
     margin: 0;
   }
@@ -84,7 +82,6 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
   p {
     color: var(--bea-color-darkblue);
     margin: 0;
-    font-size: 24px;
     font-style: normal;
     font-weight: bold;
     line-height: 1.2;
@@ -152,11 +149,11 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
   }
 
   #emailformbutton {
-    position: absolute;
+    grid-area: emailbutton;
     font-size: 22px;
-    bottom: 40px;
+    /* bottom: 40px;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%); */
   }
 
   #overlay {
@@ -176,6 +173,71 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
     pointer-events: none;
   }
 
+  @media (min-width: 1024px) {
+    :host {
+      grid-template-areas: "text media"
+        "emailbutton emailbutton";
+      grid-template-rows: minmax(0, 1fr) 0;
+    }
+
+    #emailformbutton {
+      margin-top: -120px;
+    }
+
+    #text {
+      gap: 30px;
+    }
+
+    h2 {
+      font-size: 88px;
+    }
+
+    p {
+      font-size: 24px;
+    }
+
+    bea-website-backgroundcircle {
+      left: calc(-200% * var(--animation-scale));
+    }
+  }
+
+  @media (max-width: 1024px) {
+    :host {
+      grid-template-areas: "emailbutton""text""media";
+      grid-template-rows: 84px auto auto;
+    }
+
+    #emailformbutton {
+      font-size: 16px;
+      padding: 20px 25px;
+      justify-self: right;
+      margin-right: 16px;
+    }
+
+    #text {
+      max-width: 280px;
+      gap: 26px;
+    }
+
+    #phone {
+      margin-top: 32px;
+    }
+
+    h2 {
+      font-size: 56px;
+    }
+
+    p {
+      font-size: 18px;
+    }
+
+    bea-website-backgroundcircle {
+      width: 1024px;
+      height: 1024px;
+      top: 100px;
+    }
+  }
+
   @keyframes float {
     0% {
       transform: translateY(10px);
@@ -186,7 +248,6 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
     }
   }
 </style>
-<bea-website-backgroundcircle></bea-website-backgroundcircle>
 <div id="text">
   <h2>
     <span>Béa</span>
@@ -196,7 +257,10 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
   <p>L’application mobile bénévole qui simplifie le don aux associations</p>
 </div>
 <!-- <img id="phone" src="node_modules/@bea-org/bea-website-home/phone.svg"> -->
-<video id="phone" autoplay loop muted playsinline src="node_modules/@bea-org/bea-website-home/userflow.mp4"></video>
+<div id="media">
+  <bea-website-backgroundcircle></bea-website-backgroundcircle>
+  <video id="phone" autoplay loop muted playsinline src="node_modules/@bea-org/bea-website-home/userflow.mp4"></video>
+</div>
 <bea-website-button id="emailformbutton">Ça m’intéresse</bea-website-button>
 <div id="overlay"></div>
 <section id="emailformpopup" hidden>

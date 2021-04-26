@@ -12,9 +12,12 @@ window.customElements.define('bea-website-backgroundcircle', class extends HTMLE
   :host {
     display: block;
     position: relative;
+    overflow: hidden;
+    contain: content;
     width: 100px;
     height: 100px;
     color: #C9DAFF;
+    --animation-scale: .04;
   }
 
   svg {
@@ -37,11 +40,11 @@ window.customElements.define('bea-website-backgroundcircle', class extends HTMLE
 
   @keyframes breath {
     0% {
-      transform: scale(.98);
+      transform: scale(calc(1 - var(--animation-scale)));
     }
 
     100% {
-      transform: scale(1.02);
+      transform: scale(1);
     }
   }
 </style>

@@ -20,6 +20,7 @@ window.customElements.define('bea-website-main', class extends HTMLElement {
     display: block;
     position: relative;
     contain: content;
+    overflow: auto;
     font-family: 'Mulish', sans-serif;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
@@ -27,8 +28,6 @@ window.customElements.define('bea-website-main', class extends HTMLElement {
   bea-website-menu,
   #header {
     position: absolute;
-    top: 40px;
-    left: 80px;
     z-index: 1;
   }
 
@@ -53,6 +52,20 @@ window.customElements.define('bea-website-main', class extends HTMLElement {
 
   bea-website-home {
     height: 100vh;
+  }
+
+  @media (min-width: 1024px) {
+    #header {
+      top: 40px;
+      left: 80px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    #header {
+      top: 24px;
+      left: 16px;
+    }
   }
 </style>
 <div id="header">
