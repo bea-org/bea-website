@@ -26,8 +26,10 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
 
   bea-website-backgroundcircle {
     position: absolute;
-    width: 200%;
-    height: 200%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 
   #media {
@@ -198,6 +200,9 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
 
     bea-website-backgroundcircle {
       left: calc(-200% * var(--animation-scale));
+      width: calc(100% + 200% * var(--animation-scale));
+      --size: 200%;
+      justify-items: start;
     }
   }
 
@@ -220,7 +225,7 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
     }
 
     #phone {
-      margin-top: 32px;
+      margin: 32px 0;
     }
 
     h2 {
@@ -232,9 +237,10 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
     }
 
     bea-website-backgroundcircle {
-      width: 1024px;
-      height: 1024px;
       top: 100px;
+      height: calc(100% - 100px);
+      --size: 1024px;
+      align-items: start;
     }
   }
 

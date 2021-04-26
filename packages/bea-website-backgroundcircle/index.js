@@ -10,22 +10,24 @@ window.customElements.define('bea-website-backgroundcircle', class extends HTMLE
 
     this.attachShadow({ mode: 'open' }).innerHTML = `<style>
   :host {
-    display: block;
+    display: grid;
     position: relative;
     overflow: hidden;
     contain: content;
     width: 100px;
     height: 100px;
     color: #C9DAFF;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr);
     --animation-scale: .04;
+    --size: 100%;
   }
 
   svg {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
+    width: var(--size);
+    height: var(--size);
     will-change: transform;
     animation-duration: 10s;
     animation-name: breath;
