@@ -92,13 +92,12 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
   #emailformpopup {
     display: grid;
     background-color: var(--bea-color-ivory);
-    border-radius: 25px;
-    padding: 50px 45px;
-    gap: 45px;
+    border-radius: 24px;
     position: absolute;
     top: 50%;
     left: 50%;
     width: 560px;
+    max-width: calc(100% - 32px);
     box-sizing: border-box;
     box-shadow: 40px 30px 30px #6b7f9933;
     will-change: transform, opacity, visibility;
@@ -126,8 +125,6 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
     position: absolute;
     width: 48px;
     height: 48px;
-    top: 0;
-    left: calc(100% + 24px);
     cursor: pointer;
     background-color: var(--bea-color-ivory);
     display: grid;
@@ -186,6 +183,16 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
       margin-top: -120px;
     }
 
+    #emailformpopup {
+      padding: 50px 45px;
+      gap: 45px;
+    }
+
+    #emailformclosebutton {
+      top: 0;
+      left: calc(100% + 24px);
+    }
+
     #text {
       gap: 30px;
     }
@@ -210,13 +217,28 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
     :host {
       grid-template-areas: "emailbutton""text""media";
       grid-template-rows: 84px auto auto;
+      gap: 16px;
     }
 
     #emailformbutton {
       font-size: 16px;
-      padding: 20px 25px;
+      padding: 20px 24px;
       justify-self: right;
       margin-right: 16px;
+    }
+
+    #emailformclosebutton {
+      bottom: calc(100% + 24px);
+      right: 0;
+    }
+
+    #emailformpopup {
+      padding: 30px 24px;
+      gap: 24px;
+    }
+
+    bea-website-mailchimpform {
+      grid-template-columns: 1fr;
     }
 
     #text {
@@ -225,7 +247,7 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
     }
 
     #phone {
-      margin: 32px 0;
+      margin: 16px 0;
     }
 
     h2 {
@@ -237,9 +259,9 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
     }
 
     bea-website-backgroundcircle {
-      top: 100px;
-      height: calc(100% - 100px);
-      --size: 1024px;
+      top: 96px;
+      height: calc(100% - 96px);
+      --size: 1500px;
       align-items: start;
     }
   }
@@ -286,6 +308,9 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
 
     const closeButton = this.shadowRoot.querySelector('#emailformclosebutton');
     closeButton.addEventListener('click', () => this.toggleAttribute('emailformopen', false));
+
+    const overlay = this.shadowRoot.querySelector('#overlay');
+    overlay.addEventListener('click', () => this.toggleAttribute('emailformopen', false));
 
     emailFormPopup.addEventListener('submit', () => this.toggleAttribute('emailformopen', false));
   }

@@ -24,14 +24,9 @@ window.customElements.define('bea-website-main', class extends HTMLElement {
     font-family: 'Mulish', sans-serif;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
-
-  bea-website-menu,
+  
   #header {
     position: absolute;
-    z-index: 1;
-  }
-
-  #header {
     display: grid;
     grid-template-columns: auto auto;
     align-items: center;

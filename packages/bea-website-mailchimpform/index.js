@@ -17,6 +17,7 @@ window.customElements.define('bea-website-mailchimpform', class extends HTMLElem
     grid-template-columns: 1fr auto;
     gap: 20px;
     align-items: center;
+    justify-items: center;
   }
 
   form {
@@ -24,6 +25,7 @@ window.customElements.define('bea-website-mailchimpform', class extends HTMLElem
   }
 
   input {
+    width: 100%;
     padding: 15px 25px;
     font-size: 16px;
     border: none;
