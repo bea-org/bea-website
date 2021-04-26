@@ -5,7 +5,7 @@ import Vector2 from '../../@damienmortini/core/math/Vector2.js';
 import Easing from '../../@damienmortini/core/math/Easing.js';
 import { animate } from '../../@damienmortini/core/util/Animation.js';
 
-const HOVER_MARGIN = 100;
+const HOVER_MARGIN = 15;
 
 /**
  * Entry point element
@@ -34,7 +34,6 @@ window.customElements.define('bea-website-button', class extends AnimationTicker
 
   damo-glslcanvas {
     position: absolute;
-    pointer-events: none;
     width: calc(100% + var(--hover-margin) * 2);
     height: calc(100% + var(--hover-margin) * 2);
     top: calc(var(--hover-margin) * -1);
