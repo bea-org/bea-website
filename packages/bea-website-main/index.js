@@ -20,7 +20,7 @@ window.customElements.define('bea-website-main', class extends HTMLElement {
     display: block;
     position: relative;
     contain: content;
-    overflow: auto;
+    overflow: hidden auto;
     font-family: 'Mulish', sans-serif;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
