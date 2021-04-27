@@ -1,6 +1,7 @@
 import '../bea-website-backgroundcircle/index.js';
 import '../bea-website-button/index.js';
 import '../bea-website-mailchimpform/index.js';
+import '../bea-website-animatedtext/index.js';
 import '../bea-icon/index.js';
 
 /**
@@ -59,7 +60,8 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
     grid-area: text;
     color: var(--bea-color-blue);
     display: grid;
-    max-width: 380px;
+    width: 380px;
+    max-width: calc(100% - 100px);
   }
 
   h2 {
@@ -75,10 +77,6 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
 
   h2 span:nth-of-type(2) {
     color: var(--bea-color-darkblue);
-  }
-
-  h2 span:nth-of-type(3) {
-    color: var(--bea-color-green);
   }
 
   p {
@@ -150,9 +148,6 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
   #emailformbutton {
     grid-area: emailbutton;
     font-size: 22px;
-    /* bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%); */
   }
 
   #overlay {
@@ -242,7 +237,6 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
     }
 
     #text {
-      max-width: 280px;
       gap: 26px;
     }
 
@@ -280,7 +274,7 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
   <h2>
     <span>Béa</span>
     <span>le don</span>
-    <span>facile</span>
+    <bea-website-animatedtext></bea-website-animatedtext>
   </h2>
   <p>L’application mobile bénévole qui simplifie le don aux associations</p>
 </div>
@@ -313,5 +307,20 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
     overlay.addEventListener('click', () => this.toggleAttribute('emailformopen', false));
 
     emailFormPopup.addEventListener('submit', () => this.toggleAttribute('emailformopen', false));
+
+    const animatedText = this.shadowRoot.querySelector('bea-website-animatedtext');
+    const delay = 3000;
+    const words = ['facile', 'sécurisé', 'sur-<wbr>mesure'];
+    const colors = ['var(--bea-color-green)', 'var(--bea-color-blue)', 'var(--bea-color-coral)'];
+    let index = -1;
+    const changeText = async () => {
+      await animatedText.hide();
+      index = (index + 1) % words.length;
+      animatedText.innerHTML = words[index];
+      animatedText.style.color = colors[index];
+      await animatedText.show();
+      setTimeout(changeText, delay);
+    };
+    changeText();
   }
 });
