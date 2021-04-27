@@ -71,7 +71,7 @@ window.customElements.define('bea-website-animatedtext', class extends HTMLEleme
           opacity: this.hidden ? 1 : 0,
         },
         {
-          transform: `translateY(-5px) scaleX(.7) scaleY(1.3)`,
+          transform: `translateY(-5px) scaleX(.8) scaleY(1.2)`,
           opacity: this.hidden ? .6 : 1,
           offset: this.hidden ? .4 : .65,
         },
