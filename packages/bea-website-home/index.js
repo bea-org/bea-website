@@ -60,7 +60,6 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
     grid-area: text;
     color: var(--bea-color-blue);
     display: grid;
-    width: 380px;
     max-width: calc(100% - 100px);
   }
 
@@ -189,6 +188,7 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
     }
 
     #text {
+      width: 520px;
       gap: 30px;
     }
 
@@ -198,6 +198,7 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
 
     p {
       font-size: 24px;
+      max-width: 380px;
     }
 
     bea-website-backgroundcircle {
@@ -237,6 +238,7 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
     }
 
     #text {
+      width: 320px;
       gap: 26px;
     }
 
@@ -250,6 +252,7 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
 
     p {
       font-size: 18px;
+      max-width: 300px;
     }
 
     bea-website-backgroundcircle {

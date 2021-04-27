@@ -64,24 +64,26 @@ window.customElements.define('bea-website-animatedtext', class extends HTMLEleme
     for (const [i, span] of this._spans.entries()) {
       span.style.transformOrigin = '50% 75%';
 
+      const duration = this.hidden ? 600 : 800;
       const animation = span.animate([
         {
           transform: `translateY(0) scaleX(1) scaleY(${!this.hidden ? 0 : 1})`,
+          opacity: this.hidden ? 1 : 0,
         },
         {
-          transform: `translateY(-5px) scaleX(.8) scaleY(1.2)`,
-          offset: 0.4,
-          easing: CSSTimingFunction.easeOutQuint,
+          transform: `translateY(-5px) scaleX(.7) scaleY(1.3)`,
+          opacity: this.hidden ? .6 : 1,
+          offset: this.hidden ? .4 : .65,
         },
         {
           transform: `translateY(0) scaleX(1) scaleY(${!this.hidden ? 1 : 0}`,
           opacity: this.hidden ? 0 : 1,
-          easing: !this.hidden ? CSSTimingFunction.easeOutBack : CSSTimingFunction.easeOutQuint,
         },
       ], {
         fill: 'both',
-        duration: this.hidden ? 400 : 300,
-        delay: (this.hidden ? 25 : 50) * i,
+        duration,
+        delay: duration / 16 * i,
+        easing: this.hidden ? 'cubic-bezier(.6,0,.3,-0.4)' : 'cubic-bezier(.6,1.45,.6,1)',
       });
 
       promises.push(animation.finished);
