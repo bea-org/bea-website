@@ -3,6 +3,6 @@
   "private": true,
   "version": "0.0.0",
   "dependencies": {
-    "@bea-org/bea-icon": "^0.0.2"
+    "@bea-org/bea-icon": "^0.0.3"
   }
 }
