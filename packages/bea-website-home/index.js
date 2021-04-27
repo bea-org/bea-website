@@ -64,6 +64,7 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
   }
 
   h2 {
+    position: relative;
     font-weight: 700;
     white-space: nowrap;
     margin: 0;
@@ -118,30 +119,36 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
     font-weight: 700;
   }
 
-  #emailformclosebutton {
+  #emailformclosebutton,
+  #asterisk {
     position: absolute;
-    width: 48px;
-    height: 48px;
     cursor: pointer;
-    background-color: var(--bea-color-ivory);
-    display: grid;
-    align-content: center;
-    justify-content: center;
-    color: var(--bea-color-darkblue);
     transition-property: transform;
     transition-duration: .4s;
-    border-radius: 24px;
-    filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.1));
   }
 
-  #emailformclosebutton:hover {
+  #emailformclosebutton:hover,
+  #asterisk:hover {
     transform: rotate(90deg);
   }
 
+  #emailformclosebutton {
+    background: none;
+    border: none;
+    padding: 0;
+  }
+
   #emailformclosebutton bea-icon {
-    color: currentColor;
-    height: 12px;
-    width: 12px;
+    background-color: var(--bea-color-ivory);
+    color: var(--bea-color-darkblue);
+    --size: 50px;
+    --icon-size: 12px;
+  }
+
+  #asterisk {
+    --size: 0.57em;
+    background-color: var(--bea-color-blue);
+    left: 1.95em;
   }
 
   #emailformbutton {
@@ -275,6 +282,7 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
 </style>
 <div id="text">
   <h2>
+    <bea-icon id="asterisk" icon="asterisk" type="fill"></bea-icon>
     <span>Béa</span>
     <span>le don</span>
     <bea-website-animatedtext></bea-website-animatedtext>
@@ -291,9 +299,9 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
 <section id="emailformpopup" hidden>
   <div id="emailformtitle">On vous en dit plus bientôt !</div>
   <bea-website-mailchimpform></bea-website-mailchimpform>
-  <a href="javascript:;" id="emailformclosebutton">
-    <bea-icon icon="close"></bea-icon>
-  </a>
+  <button id="emailformclosebutton">
+    <bea-icon icon="close" type="fill"></bea-icon>
+  </button>
 </section>`;
 
     const emailFormPopup = this.shadowRoot.querySelector('#emailformpopup');

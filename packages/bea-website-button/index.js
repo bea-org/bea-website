@@ -66,10 +66,13 @@ window.customElements.define('bea-website-button', class extends AnimationTicker
     top: 0;
     left: 0;
     pointer-events: none;
+    border: none;
+    background: none;
+    padding: 0;
   }
 </style>
 <damo-glslcanvas></damo-glslcanvas>
-<a href="javascript:;" id="focusable"></a>
+<button id="focusable"></button>
 <slot>Button</slot>
 <!-- <svg width="218" height="84" viewBox="0 0 218 84" xmlns="http://www.w3.org/2000/svg">
   <path

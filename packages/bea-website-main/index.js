@@ -39,6 +39,7 @@ window.customElements.define('bea-website-main', class extends HTMLElement {
   }
 
   #name {
+    margin: 0;
     color: var(--bea-color-blue);
     font-weight: bolder;
     font-size: 24px;
@@ -65,7 +66,7 @@ window.customElements.define('bea-website-main', class extends HTMLElement {
 </style>
 <div id="header">
   <bea-logo icon></bea-logo>
-  <div id="name">Béa</div>
+  <h1 id="name">Béa</h1>
 </div>
 <!-- <bea-website-menu></bea-website-menu> -->
 <bea-website-home></bea-website-home>`;
