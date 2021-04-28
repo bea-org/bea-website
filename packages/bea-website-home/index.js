@@ -46,14 +46,14 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
   #phone {
     max-height: 80vh;
     max-width: 80vw;
-    /* filter: drop-shadow(40px 30px 30px #6B7F9933); */
+    filter: drop-shadow(40px 30px 30px #6B7F9933);
     animation-duration: 3s;
     animation-name: float;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
     animation-direction: alternate;
-    -webkit-mask-image: url(node_modules/@bea-org/bea-website-home/video-mask.png);
-    -webkit-mask-size: 100% 100%;
+    /* -webkit-mask-image: url(node_modules/@bea-org/bea-website-home/video-mask.png); */
+    /* -webkit-mask-size: 100% 100%; */
   }
 
   #text {
@@ -289,10 +289,10 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
   </h2>
   <p>L’application mobile bénévole qui simplifie le don aux associations</p>
 </div>
-<!-- <img id="phone" src="node_modules/@bea-org/bea-website-home/phone.svg"> -->
 <div id="media">
-  <bea-website-backgroundcircle></bea-website-backgroundcircle>
-  <video id="phone" autoplay loop muted playsinline src="node_modules/@bea-org/bea-website-home/userflow.mp4"></video>
+<bea-website-backgroundcircle></bea-website-backgroundcircle>
+  <img id="phone" src="node_modules/@bea-org/bea-website-home/phone.svg">
+  <!-- <video id="phone" autoplay loop muted playsinline src="node_modules/@bea-org/bea-website-home/userflow.mp4"></video> -->
 </div>
 <bea-website-button id="emailformbutton">Ça m’intéresse</bea-website-button>
 <div id="overlay"></div>

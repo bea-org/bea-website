@@ -47,7 +47,7 @@ window.customElements.define('bea-website-main', class extends HTMLElement {
   }
 
   bea-website-home {
-    height: 100vh;
+    height: 100%;
   }
 
   @media (min-width: 1024px) {

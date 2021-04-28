@@ -122,7 +122,7 @@ window.customElements.define('bea-website-button', class extends AnimationTicker
 
           float aa = 1. / min(glslCanvasSize.x, glslCanvasSize.y) * 4.;
           float opacity = 1. - smoothstep(-aa, 0., df);
-          fragColor = vec4(color.rgb, opacity * color.a);
+          fragColor = vec4(color.rgb * opacity * color.a, opacity * color.a);
           // fragColor = vec4(vec3(df), 1.);
           // fragColor = vec4(vec3(pointerDistance), 1.);
         `],
