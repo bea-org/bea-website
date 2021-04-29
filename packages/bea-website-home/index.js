@@ -87,7 +87,7 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
     line-height: 1.2;
   }
 
-  #emailformpopup {
+  #emailformpopin {
     display: grid;
     background-color: var(--bea-color-ivory);
     border-radius: 24px;
@@ -105,7 +105,7 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
     transform: translate(-50%, -50%)
   }
 
-  :host(:not([emailformopen])) #emailformpopup {
+  :host(:not([emailformopen])) #emailformpopin {
     transform: translateY(-50px) translate(-50%, -50%);
     opacity: 0;
     transition-duration: .3s;
@@ -184,7 +184,7 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
       margin-top: -120px;
     }
 
-    #emailformpopup {
+    #emailformpopin {
       padding: 50px 45px;
       gap: 45px;
     }
@@ -235,7 +235,7 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
       right: 0;
     }
 
-    #emailformpopup {
+    #emailformpopin {
       padding: 30px 24px;
       gap: 24px;
     }
@@ -296,7 +296,7 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
 </div>
 <bea-website-button id="emailformbutton">Ça m’intéresse</bea-website-button>
 <div id="overlay"></div>
-<section id="emailformpopup" hidden>
+<section id="emailformpopin" hidden>
   <div id="emailformtitle">On vous en dit plus bientôt !</div>
   <bea-website-mailchimpform></bea-website-mailchimpform>
   <button id="emailformclosebutton">
@@ -304,7 +304,7 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
   </button>
 </section>`;
 
-    const emailFormPopup = this.shadowRoot.querySelector('#emailformpopup');
+    const emailFormPopIn = this.shadowRoot.querySelector('#emailformpopin');
 
     const emailFormButton = this.shadowRoot.querySelector('#emailformbutton');
     emailFormButton.addEventListener('click', () => {
@@ -317,7 +317,7 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
     const overlay = this.shadowRoot.querySelector('#overlay');
     overlay.addEventListener('click', () => this.toggleAttribute('emailformopen', false));
 
-    emailFormPopup.addEventListener('submit', () => this.toggleAttribute('emailformopen', false));
+    emailFormPopIn.addEventListener('submit', () => this.toggleAttribute('emailformopen', false));
 
     const animatedText = this.shadowRoot.querySelector('bea-website-animatedtext');
     const delay = 3000;
