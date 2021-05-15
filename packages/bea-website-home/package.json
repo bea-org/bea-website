@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "dependencies": {
     "@bea-org/bea-icon": "^0.0.3",
-    "@damienmortini/element-animation-lottie": "^0.0.95",
+    "@damienmortini/element-animation-lottie": "^0.0.96",
     "lottie-web": "5.7.5"
   }
 }
