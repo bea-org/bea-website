@@ -1,3 +1,4 @@
+import '../../@damienmortini/element-animation-lottie/index.js';
 import '../bea-website-backgroundcircle/index.js';
 import '../bea-website-button/index.js';
 import '../bea-website-mailchimpform/index.js';
@@ -44,16 +45,18 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
   }
 
   #phone {
-    max-height: 80vh;
+    width: 100%;
+    height: 100%;
     max-width: 80vw;
+    max-height: 80vh;
     filter: drop-shadow(40px 30px 30px #6B7F9933);
     animation-duration: 3s;
     animation-name: float;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
     animation-direction: alternate;
-    /* -webkit-mask-image: url(node_modules/@bea-org/bea-website-home/video-mask.png); */
-    /* -webkit-mask-size: 100% 100%; */
+    /* -webkit-mask-image: url(node_modules/@bea-org/bea-website-home/video-mask.png);
+    -webkit-mask-size: 100% 100%; */
   }
 
   #text {
@@ -291,8 +294,10 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
 </div>
 <div id="media">
 <bea-website-backgroundcircle></bea-website-backgroundcircle>
-  <img id="phone" src="node_modules/@bea-org/bea-website-home/phone.svg">
+  <!-- <img id="phone" src="node_modules/@bea-org/bea-website-home/phone.svg"> -->
   <!-- <video id="phone" autoplay loop muted playsinline src="node_modules/@bea-org/bea-website-home/userflow.mp4"></video> -->
+  <!-- <div id="phone"></div> -->
+  <damo-animation-lottie id="phone" src="node_modules/@bea-org/bea-website-home/data.json" autoplay loop></damo-animation-lottie>
 </div>
 <bea-website-button id="emailformbutton">Ça m’intéresse</bea-website-button>
 <div id="overlay"></div>
@@ -318,6 +323,15 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
     overlay.addEventListener('click', () => this.toggleAttribute('emailformopen', false));
 
     emailFormPopIn.addEventListener('submit', () => this.toggleAttribute('emailformopen', false));
+
+    // lottie.loadAnimation({
+    //   container: document.body.querySelector('#test'),
+    //   // container: this.shadowRoot.querySelector('#phone'),
+    //   renderer: 'svg',
+    //   autoplay: true,
+    //   loop: true,
+    //   path: 'node_modules/@bea-org/bea-website-home/data.json',
+    // });
 
     const animatedText = this.shadowRoot.querySelector('bea-website-animatedtext');
     const delay = 3000;

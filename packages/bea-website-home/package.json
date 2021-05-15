@@ -3,6 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "dependencies": {
-    "@bea-org/bea-icon": "^0.0.3"
+    "@bea-org/bea-icon": "^0.0.3",
+    "@damienmortini/element-animation-lottie": "^0.0.95",
+    "lottie-web": "5.7.5"
   }
 }
