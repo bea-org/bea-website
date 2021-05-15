@@ -21,37 +21,50 @@ window.customElements.define('bea-website-backgroundcircle', class extends HTMLE
     justify-items: center;
     grid-template-columns: minmax(0, 1fr);
     grid-template-rows: minmax(0, 1fr);
-    --animation-scale: .04;
-    --size: 100%;
+    --animation-scale: .95;
+    --size-ratio: 1;
   }
 
   svg {
-    width: var(--size);
-    height: var(--size);
+    width: calc(var(--size) * var(--size-ratio));
+    height: calc(var(--size) * var(--size-ratio));
+  }
+
+  circle {
+    fill: currentColor;
     will-change: transform;
     animation-duration: 10s;
     animation-name: breath;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
     animation-direction: alternate;
-  }
-
-  circle {
-    fill: currentColor;
+    transform-origin: center;
   }
 
   @keyframes breath {
     0% {
-      transform: scale(calc(1 - var(--animation-scale)));
+      transform: scale(1);
     }
 
     100% {
-      transform: scale(1);
+      transform: scale(var(--animation-scale));
     }
   }
 </style>
-<svg id="bubble" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="50" cy="50" r="50" />
+<svg id="bubble" width="1" height="1" viewBox="0 0 1 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx=".5" cy=".5" r=".5" />
 </svg>`;
+
+    const svg = this.shadowRoot.querySelector('svg');
+
+    const resizeObserver = new ResizeObserver((entries) => {
+      const width = entries[0].contentRect.width;
+      const height = entries[0].contentRect.height;
+
+      const size = Math.max(width, height);
+
+      svg.style.setProperty('--size', `${size}px`);
+    });
+    resizeObserver.observe(this);
   }
 });

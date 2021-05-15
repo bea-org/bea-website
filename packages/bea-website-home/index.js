@@ -212,10 +212,10 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
     }
 
     bea-website-backgroundcircle {
-      left: calc(-200% * var(--animation-scale));
-      width: calc(100% + 200% * var(--animation-scale));
-      --size: 200%;
+      left: -10%;
+      width: 120%;
       justify-items: start;
+      --size-ratio: 2;
     }
   }
 
@@ -251,9 +251,14 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
       width: 320px;
       gap: 26px;
     }
+    
+    #media {
+      padding-bottom: 16px;
+    }
 
     #phone {
       margin: 16px 0;
+      height: 800px;
     }
 
     h2 {
@@ -268,7 +273,7 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
     bea-website-backgroundcircle {
       top: 96px;
       height: calc(100% - 96px);
-      --size: 1500px;
+      --size-ratio: 2;
       align-items: start;
     }
   }
@@ -293,11 +298,12 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
   <p>L’application mobile bénévole qui simplifie le don aux associations</p>
 </div>
 <div id="media">
-<bea-website-backgroundcircle></bea-website-backgroundcircle>
+  <bea-website-backgroundcircle></bea-website-backgroundcircle>
   <!-- <img id="phone" src="node_modules/@bea-org/bea-website-home/phone.svg"> -->
   <!-- <video id="phone" autoplay loop muted playsinline src="node_modules/@bea-org/bea-website-home/userflow.mp4"></video> -->
   <!-- <div id="phone"></div> -->
-  <damo-animation-lottie id="phone" src="node_modules/@bea-org/bea-website-home/data.json" autoplay loop></damo-animation-lottie>
+  <damo-animation-lottie id="phone" src="node_modules/@bea-org/bea-website-home/data.json" autoplay loop>
+  </damo-animation-lottie>
 </div>
 <bea-website-button id="emailformbutton">Ça m’intéresse</bea-website-button>
 <div id="overlay"></div>
