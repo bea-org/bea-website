@@ -290,7 +290,7 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
 </style>
 <div id="text">
   <h2>
-    <bea-icon id="asterisk" icon="asterisk" type="fill"></bea-icon>
+    <!-- <bea-icon id="asterisk" icon="asterisk" type="fill"></bea-icon> -->
     <span>Béa</span>
     <span>le don</span>
     <bea-website-animatedtext></bea-website-animatedtext>
