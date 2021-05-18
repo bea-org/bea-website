@@ -1,4 +1,3 @@
-// import '../../@damienmortini/element-animation-lottie/index.js';
 import '../bea-website-backgroundcircle/index.js';
 import '../bea-website-button/index.js';
 import '../bea-website-mailchimpform/index.js';
@@ -313,16 +312,12 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
 </div>
 <div id="media">
   <bea-website-backgroundcircle></bea-website-backgroundcircle>
-  <!-- <img id="phone" src="node_modules/@bea-org/bea-website-home/phone.svg"> -->
-  <!-- <video id="phone" autoplay loop muted playsinline src="node_modules/@bea-org/bea-website-home/userflow.mp4"></video> -->
   <div id="phone">
     <video id="phone" poster="node_modules/@bea-org/bea-website-home/poster.png" autoplay loop muted playsinline>
       <source src="node_modules/@bea-org/bea-website-home/userflow.webm" type="video/webm">
       <source src="node_modules/@bea-org/bea-website-home/userflow.mp4" type="video/mp4">
     </video>
-    <!-- <img src="node_modules/@bea-org/bea-website-home/phone.svg"> -->
   </div>
-  <!-- <damo-animation-lottie id="phone" src="node_modules/@bea-org/bea-website-home/data.json" autoplay loop> -->
   </damo-animation-lottie>
 </div>
 <bea-website-button id="emailformbutton">Ça m’intéresse</bea-website-button>
@@ -349,15 +344,6 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
     overlay.addEventListener('click', () => this.toggleAttribute('emailformopen', false));
 
     emailFormPopIn.addEventListener('submit', () => this.toggleAttribute('emailformopen', false));
-
-    // lottie.loadAnimation({
-    //   container: document.body.querySelector('#test'),
-    //   // container: this.shadowRoot.querySelector('#phone'),
-    //   renderer: 'svg',
-    //   autoplay: true,
-    //   loop: true,
-    //   path: 'node_modules/@bea-org/bea-website-home/data.json',
-    // });
 
     const animatedText = this.shadowRoot.querySelector('bea-website-animatedtext');
     const delay = 3000;
