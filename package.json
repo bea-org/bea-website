@@ -4,6 +4,8 @@
   "private": true,
   "description": "Béa website",
   "scripts": {
+    "build": "esbuild node_modules/@bea-org/bea-website-main/index.js --outfile=build/index.js --bundle --minify --preserve-symlinks --target=safari13",
+    "build-watch": "yarn build --watch",
     "start": "server",
     "test": "eslint packages",
     "update": "yarn",
@@ -17,6 +19,7 @@
   ],
   "devDependencies": {
     "@damienmortini/server": "^1.0.31",
+    "esbuild": "^0.12.0",
     "eslint": "^7.26.0",
     "eslint-config-google": "^0.14.0",
     "yarn": "^1.22.10"
