@@ -43,6 +43,11 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@juggle/resize-observer@^3.3.1":
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/@juggle/resize-observer/-/resize-observer-3.3.1.tgz#b50a781709c81e10701004214340f25475a171a0"
+  integrity sha512-zMM9Ds+SawiUkakS7y94Ymqx+S0ORzpG3frZirN3l+UlXUmSUR7hF4wxCVqW+ei94JzV5kt0uXBcoOEAuiydrw==
+
 a-color-picker@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/a-color-picker/-/a-color-picker-1.2.1.tgz#690c9b66595cb906b6a3ceec040cf0ad1f815608"
@@ -390,6 +395,11 @@ entities@~2.0.0:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/entities/-/entities-2.0.3.tgz#5c487e5742ab93c15abb5da22759b8590ec03b7f"
   integrity sha512-MyoZ0jgnLvB2X3Lg5HqpFmn1kybDiIfEQmKzTb5apr51Rb+T3KdmMiqa70T+bhGnyv7bQ6WMj2QMHpGMmlrUYQ==
+
+esbuild@^0.12.0:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.12.0.tgz#84f49105994f437c2fe307daa5b32e8885c3d10d"
+  integrity sha512-vUKQ6TiMWGCtI7jLSrMmBVY4aj4As9J6NsFnrS9insd2F5KKD3mr1jUe+SB4KsMACkQIGtTtkksPpRmmqgxDHw==
 
 escape-string-regexp@^1.0.5:
   version "1.0.5"

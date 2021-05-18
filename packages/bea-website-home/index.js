@@ -1,4 +1,4 @@
-import '../../@damienmortini/element-animation-lottie/index.js';
+// import '../../@damienmortini/element-animation-lottie/index.js';
 import '../bea-website-backgroundcircle/index.js';
 import '../bea-website-button/index.js';
 import '../bea-website-mailchimpform/index.js';
@@ -50,13 +50,19 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
     max-width: 80vw;
     max-height: 80vh;
     filter: drop-shadow(40px 30px 30px #6B7F9933);
-    animation-duration: 3s;
-    animation-name: float;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
-    animation-direction: alternate;
-    /* -webkit-mask-image: url(node_modules/@bea-org/bea-website-home/video-mask.png);
-    -webkit-mask-size: 100% 100%; */
+  }
+
+  #phone video {
+    width: 100%;
+    height: 100%;
+    -webkit-mask-image: url(node_modules/@bea-org/bea-website-home/video-mask.svg);
+    mask-image: url(node_modules/@bea-org/bea-website-home/video-mask.svg);
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
   }
 
   #text {
@@ -183,6 +189,14 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
       grid-template-rows: minmax(0, 1fr) 0;
     }
 
+    #phone {
+      animation-duration: 3s;
+      animation-name: float;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+      animation-direction: alternate;
+    }
+
     #emailformbutton {
       margin-top: -120px;
     }
@@ -251,7 +265,7 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
       width: 320px;
       gap: 26px;
     }
-    
+
     #media {
       padding-bottom: 16px;
     }
@@ -301,8 +315,14 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
   <bea-website-backgroundcircle></bea-website-backgroundcircle>
   <!-- <img id="phone" src="node_modules/@bea-org/bea-website-home/phone.svg"> -->
   <!-- <video id="phone" autoplay loop muted playsinline src="node_modules/@bea-org/bea-website-home/userflow.mp4"></video> -->
-  <!-- <div id="phone"></div> -->
-  <damo-animation-lottie id="phone" src="node_modules/@bea-org/bea-website-home/data.json" autoplay loop>
+  <div id="phone">
+    <video id="phone" poster="node_modules/@bea-org/bea-website-home/poster.png" autoplay loop muted playsinline>
+      <source src="node_modules/@bea-org/bea-website-home/userflow.webm" type="video/webm">
+      <source src="node_modules/@bea-org/bea-website-home/userflow.mp4" type="video/mp4">
+    </video>
+    <!-- <img src="node_modules/@bea-org/bea-website-home/phone.svg"> -->
+  </div>
+  <!-- <damo-animation-lottie id="phone" src="node_modules/@bea-org/bea-website-home/data.json" autoplay loop> -->
   </damo-animation-lottie>
 </div>
 <bea-website-button id="emailformbutton">Ça m’intéresse</bea-website-button>

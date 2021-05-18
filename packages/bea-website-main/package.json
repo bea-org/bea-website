@@ -2,8 +2,12 @@
   "name": "@bea-org/bea-website-main",
   "private": true,
   "version": "0.0.0",
+  "scripts": {
+    "build": "esbuild ../../node_modules/@bea-org/bea-website-main/index.js --outfile=index.min.js --bundle --minify --preserve-symlinks --target=safari13"
+  },
   "dependencies": {
     "@bea-org/bea-color": "^0.0.3",
-    "@bea-org/bea-font": "^0.0.4"
+    "@bea-org/bea-font": "^0.0.4",
+    "esbuild": "^0.12.0"
   }
 }
