@@ -15,6 +15,8 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
     super();
 
     this.attachShadow({ mode: 'open' }).innerHTML = `<style>
+  @import "./node_modules/@bea-org/bea-color/index.css";
+
   :host {
     display: grid;
     position: relative;
@@ -91,6 +93,10 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
     font-style: normal;
     font-weight: bold;
     line-height: 1.2;
+  }
+
+  #text p span {
+    color: var(--bea-color-blue);
   }
 
   #emailformpopin {
@@ -309,7 +315,7 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
     <span>le don</span>
     <bea-website-animatedtext></bea-website-animatedtext>
   </h2>
-  <p>L’application mobile bénévole qui simplifie le don aux associations</p>
+  <p>L’application mobile bénévole qui simplifie <span>(enfin)</span> le don aux associations</p>
 </div>
 <div id="media">
   <bea-website-backgroundcircle></bea-website-backgroundcircle>
@@ -348,7 +354,7 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
 
     const animatedText = this.shadowRoot.querySelector('bea-website-animatedtext');
     const delay = 3000;
-    const words = ['facile', 'sécurisé', 'sur-<wbr>mesure'];
+    const words = ['facile', 'sécurisé', 'sur-mesure'];
     const colors = ['var(--bea-color-green)', 'var(--bea-color-blue)', 'var(--bea-color-coral)'];
     let index = -1;
     const changeText = async () => {

@@ -413,6 +413,8 @@ at: ${p[n-1].replace(/^\s*/,"")}`)}else throw new Error(r)}let o=this._attachedS
   }
 </style>
 <div id="icon-container"></div>`,this._iconContainer=this.shadowRoot.querySelector("#icon-container")}attributeChangedCallback(i,t,e){switch(i){case"icon":this._loadIcon(e);break}}async _loadIcon(i){let t=await fetch(`node_modules/@bea-org/bea-icon/${i}.svg`).then(e=>e.text());this._iconContainer.innerHTML=t}get icon(){return this.getAttribute("icon")}set icon(i){this.setAttribute("icon",i)}});window.customElements.define("bea-website-home",class extends HTMLElement{constructor(){super();this.attachShadow({mode:"open"}).innerHTML=`<style>
+  @import "./node_modules/@bea-org/bea-color/index.css";
+
   :host {
     display: grid;
     position: relative;
@@ -489,6 +491,10 @@ at: ${p[n-1].replace(/^\s*/,"")}`)}else throw new Error(r)}let o=this._attachedS
     font-style: normal;
     font-weight: bold;
     line-height: 1.2;
+  }
+
+  #text p span {
+    color: var(--bea-color-blue);
   }
 
   #emailformpopin {
@@ -707,7 +713,7 @@ at: ${p[n-1].replace(/^\s*/,"")}`)}else throw new Error(r)}let o=this._attachedS
     <span>le don</span>
     <bea-website-animatedtext></bea-website-animatedtext>
   </h2>
-  <p>L\u2019application mobile b\xE9n\xE9vole qui simplifie le don aux associations</p>
+  <p>L\u2019application mobile b\xE9n\xE9vole qui simplifie <span>(enfin)</span> le don aux associations</p>
 </div>
 <div id="media">
   <bea-website-backgroundcircle></bea-website-backgroundcircle>
@@ -727,7 +733,7 @@ at: ${p[n-1].replace(/^\s*/,"")}`)}else throw new Error(r)}let o=this._attachedS
   <button id="emailformclosebutton">
     <bea-icon icon="close" type="fill"></bea-icon>
   </button>
-</section>`;let i=this.shadowRoot.querySelector("#emailformpopin");this.shadowRoot.querySelector("#emailformbutton").addEventListener("click",()=>{this.toggleAttribute("emailformopen",!0)}),this.shadowRoot.querySelector("#emailformclosebutton").addEventListener("click",()=>this.toggleAttribute("emailformopen",!1)),this.shadowRoot.querySelector("#overlay").addEventListener("click",()=>this.toggleAttribute("emailformopen",!1)),i.addEventListener("submit",()=>this.toggleAttribute("emailformopen",!1));let r=this.shadowRoot.querySelector("bea-website-animatedtext"),o=3e3,a=["facile","s\xE9curis\xE9","sur-<wbr>mesure"],n=["var(--bea-color-green)","var(--bea-color-blue)","var(--bea-color-coral)"],p=-1,u=async()=>{await r.hide(),p=(p+1)%a.length,r.innerHTML=a[p],r.style.color=n[p],await r.show(),setTimeout(u,o)};u()}});window.customElements.define("bea-website-main",class extends HTMLElement{constructor(){super();this.attachShadow({mode:"open"}).innerHTML=`<style>
+</section>`;let i=this.shadowRoot.querySelector("#emailformpopin");this.shadowRoot.querySelector("#emailformbutton").addEventListener("click",()=>{this.toggleAttribute("emailformopen",!0)}),this.shadowRoot.querySelector("#emailformclosebutton").addEventListener("click",()=>this.toggleAttribute("emailformopen",!1)),this.shadowRoot.querySelector("#overlay").addEventListener("click",()=>this.toggleAttribute("emailformopen",!1)),i.addEventListener("submit",()=>this.toggleAttribute("emailformopen",!1));let r=this.shadowRoot.querySelector("bea-website-animatedtext"),o=3e3,a=["facile","s\xE9curis\xE9","sur-mesure"],n=["var(--bea-color-green)","var(--bea-color-blue)","var(--bea-color-coral)"],p=-1,u=async()=>{await r.hide(),p=(p+1)%a.length,r.innerHTML=a[p],r.style.color=n[p],await r.show(),setTimeout(u,o)};u()}});window.customElements.define("bea-website-main",class extends HTMLElement{constructor(){super();this.attachShadow({mode:"open"}).innerHTML=`<style>
   @import "./node_modules/@bea-org/bea-color/index.css";
 
   :host {
