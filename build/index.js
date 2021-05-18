@@ -444,8 +444,6 @@ at: ${p[n-1].replace(/^\s*/,"")}`)}else throw new Error(r)}let o=this._attachedS
   #phone {
     width: 100%;
     height: 100%;
-    max-width: 80vw;
-    max-height: 80vh;
     filter: drop-shadow(40px 30px 30px #6B7F9933);
   }
 
@@ -587,6 +585,8 @@ at: ${p[n-1].replace(/^\s*/,"")}`)}else throw new Error(r)}let o=this._attachedS
     }
 
     #phone {
+      max-width: 80vw;
+      max-height: 80vh;
       animation-duration: 3s;
       animation-name: float;
       animation-iteration-count: infinite;
@@ -634,7 +634,7 @@ at: ${p[n-1].replace(/^\s*/,"")}`)}else throw new Error(r)}let o=this._attachedS
     :host {
       grid-template-areas: "emailbutton""text""media";
       grid-template-rows: 84px auto auto;
-      gap: 16px;
+      gap: 32px;
     }
 
     #emailformbutton {
@@ -661,15 +661,16 @@ at: ${p[n-1].replace(/^\s*/,"")}`)}else throw new Error(r)}let o=this._attachedS
     #text {
       width: 320px;
       gap: 26px;
+      margin-top: -16px;
     }
 
     #media {
-      padding-bottom: 16px;
+      padding-bottom: 32px;
     }
 
     #phone {
-      margin: 16px 0;
-      height: 800px;
+      width: calc(100% - 140px);
+      max-width: 280px;
     }
 
     h2 {
