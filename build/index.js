@@ -698,11 +698,11 @@ at: ${p[n-1].replace(/^\s*/,"")}`)}else throw new Error(r)}let o=this._attachedS
 
   @keyframes float {
     0% {
-      transform: translateY(10px);
+      transform: translateY(5px);
     }
 
     100% {
-      transform: translateY(-10px);
+      transform: translateY(-5px);
     }
   }
 </style>

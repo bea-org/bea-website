@@ -300,11 +300,11 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
 
   @keyframes float {
     0% {
-      transform: translateY(10px);
+      transform: translateY(5px);
     }
 
     100% {
-      transform: translateY(-10px);
+      transform: translateY(-5px);
     }
   }
 </style>
