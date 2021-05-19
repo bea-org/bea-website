@@ -4,6 +4,6 @@
   "version": "0.0.0",
   "dependencies": {
     "@bea-org/bea-a": "^0.0.2",
-    "@bea-org/bea-logo": "^0.0.2"
+    "@bea-org/bea-logo": "^0.0.3"
   }
 }
