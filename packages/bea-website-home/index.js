@@ -69,6 +69,7 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
     color: var(--bea-color-blue);
     display: grid;
     max-width: calc(100% - 100px);
+    grid-auto-columns: minmax(0, 1fr);
   }
 
   h2 {
@@ -185,7 +186,7 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
     pointer-events: none;
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 1280px) {
     :host {
       grid-template-areas: "text media"
         "emailbutton emailbutton";
@@ -225,6 +226,10 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
       font-size: 88px;
     }
 
+    #logo {
+      font-size: 100px;
+    }
+
     p {
       font-size: 24px;
       max-width: 380px;
@@ -238,7 +243,7 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
     }
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1280px) {
     :host {
       grid-template-areas: "emailbutton""text""media";
       grid-template-rows: 84px auto auto;
@@ -282,6 +287,10 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
     }
 
     h2 {
+      font-size: 50px;
+    }
+
+    #logo {
       font-size: 56px;
     }
 
@@ -311,7 +320,7 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
 <div id="text">
   <h2>
     <!-- <bea-icon id="asterisk" icon="asterisk" type="fill"></bea-icon> -->
-    <span>Béa</span>
+    <span id="logo">Béa</span>
     <span>le don</span>
     <bea-website-animatedtext></bea-website-animatedtext>
   </h2>
