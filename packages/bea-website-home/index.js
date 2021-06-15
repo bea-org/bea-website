@@ -336,7 +336,7 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
   </div>
   </damo-animation-lottie>
 </div>
-<bea-website-button id="emailformbutton">Ça m’intéresse</bea-website-button>
+<bea-website-button id="emailformbutton">Tenez-moi informé(e)</bea-website-button>
 <div id="overlay"></div>
 <section id="emailformpopin" hidden>
   <div id="emailformtitle">On vous en dit plus bientôt !</div>
@@ -362,7 +362,7 @@ window.customElements.define('bea-website-home', class extends HTMLElement {
     emailFormPopIn.addEventListener('submit', () => this.toggleAttribute('emailformopen', false));
 
     const animatedText = this.shadowRoot.querySelector('bea-website-animatedtext');
-    const delay = 3000;
+    const delay = 1500;
     const words = ['facile', 'sécurisé', 'sur-mesure'];
     const colors = ['var(--bea-color-green)', 'var(--bea-color-blue)', 'var(--bea-color-coral)'];
     let index = -1;

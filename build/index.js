@@ -727,7 +727,7 @@ at: ${p[n-1].replace(/^\s*/,"")}`)}else throw new Error(r)}let o=this._attachedS
   </div>
   </damo-animation-lottie>
 </div>
-<bea-website-button id="emailformbutton">\xC7a m\u2019int\xE9resse</bea-website-button>
+<bea-website-button id="emailformbutton">Tenez-moi inform\xE9(e)</bea-website-button>
 <div id="overlay"></div>
 <section id="emailformpopin" hidden>
   <div id="emailformtitle">On vous en dit plus bient\xF4t !</div>
@@ -735,7 +735,7 @@ at: ${p[n-1].replace(/^\s*/,"")}`)}else throw new Error(r)}let o=this._attachedS
   <button id="emailformclosebutton">
     <bea-icon icon="close" type="fill"></bea-icon>
   </button>
-</section>`;let i=this.shadowRoot.querySelector("#emailformpopin");this.shadowRoot.querySelector("#emailformbutton").addEventListener("click",()=>{this.toggleAttribute("emailformopen",!0)}),this.shadowRoot.querySelector("#emailformclosebutton").addEventListener("click",()=>this.toggleAttribute("emailformopen",!1)),this.shadowRoot.querySelector("#overlay").addEventListener("click",()=>this.toggleAttribute("emailformopen",!1)),i.addEventListener("submit",()=>this.toggleAttribute("emailformopen",!1));let r=this.shadowRoot.querySelector("bea-website-animatedtext"),o=3e3,a=["facile","s\xE9curis\xE9","sur-mesure"],n=["var(--bea-color-green)","var(--bea-color-blue)","var(--bea-color-coral)"],p=-1,u=async()=>{await r.hide(),p=(p+1)%a.length,r.innerHTML=a[p],r.style.color=n[p],await r.show(),setTimeout(u,o)};u()}});window.customElements.define("bea-website-main",class extends HTMLElement{constructor(){super();this.attachShadow({mode:"open"}).innerHTML=`<style>
+</section>`;let i=this.shadowRoot.querySelector("#emailformpopin");this.shadowRoot.querySelector("#emailformbutton").addEventListener("click",()=>{this.toggleAttribute("emailformopen",!0)}),this.shadowRoot.querySelector("#emailformclosebutton").addEventListener("click",()=>this.toggleAttribute("emailformopen",!1)),this.shadowRoot.querySelector("#overlay").addEventListener("click",()=>this.toggleAttribute("emailformopen",!1)),i.addEventListener("submit",()=>this.toggleAttribute("emailformopen",!1));let r=this.shadowRoot.querySelector("bea-website-animatedtext"),o=1500,a=["facile","s\xE9curis\xE9","sur-mesure"],n=["var(--bea-color-green)","var(--bea-color-blue)","var(--bea-color-coral)"],p=-1,u=async()=>{await r.hide(),p=(p+1)%a.length,r.innerHTML=a[p],r.style.color=n[p],await r.show(),setTimeout(u,o)};u()}});window.customElements.define("bea-website-main",class extends HTMLElement{constructor(){super();this.attachShadow({mode:"open"}).innerHTML=`<style>
   @import "./node_modules/@bea-org/bea-color/index.css";
 
   :host {
